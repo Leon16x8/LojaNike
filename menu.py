@@ -1,8 +1,12 @@
 import operacao
 import this
+from gtts import gTTS
+from playsound import playsound
 
 this.opcao = -1
 
+aud = 'cuspe.mp3'
+playsound(aud)
 
 def menu():
     print('\n|----------NIKE----------|\n' +

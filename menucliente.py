@@ -1,8 +1,17 @@
 import this
 import operacao
+import time
+import cv2
 
 this.opcao = -1
 this.opcao1 = -1
+this.opcao2 = -1
+
+class bcolors:
+    GREEN = '\033[92m' #Verde
+    YELLOW = '\033[93m' # Amarelo
+    RED = '\033[91m' #Vermelho
+    RESET = '\033[0m' #Resetar a Cor
 
 def menuCliente():
     operacao.consultarprodutos()
@@ -26,9 +35,19 @@ def opera():
                 this.opcao1 = int(input('Digite o numero da opção de pagamento: '))
                 if this.opcao1 == 0:
                     opera()
-                elif this.opcao1 == 1:
-                    print('Em Construção\n')
-                elif this.opcao1 == 2:
+                elif this.opcao1 == 1: #PIX
+                    time.sleep(1)
+                    img = cv2.imread("qrcodepagamento.png")
+                    img = cv2.resize(img, (270, 270))
+                    cv2.imshow("Pagamento", img)
+                    cv2.waitKey(0)
+                    time.sleep(1)
+                    print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
+                    print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")
+                    time.sleep(5)
+                    opera()
+
+                elif this.opcao1 == 2: #Cartão
                     print('Em Construção\n')
 
         elif this.opcao == 2:
@@ -40,9 +59,18 @@ def opera():
                 this.opcao1 = int(input('Digite o numero da opção de pagamento: '))
                 if this.opcao1 == 0:
                     opera()
-                elif this.opcao1 == 1:
-                    print('Em Construção\n')
-                elif this.opcao1 == 2:
+                elif this.opcao1 == 1: #PIX
+                    time.sleep(1)
+                    img = cv2.imread("qrcodepagamento.png")
+                    img = cv2.resize(img, (270, 270))
+                    cv2.imshow("Pagamento", img)
+                    cv2.waitKey(0)
+                    time.sleep(1)
+                    print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
+                    print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")
+                    time.sleep(5)
+                    opera()
+                elif this.opcao1 == 2: #Cartão
                     print('Em Construção\n')
 
         elif this.opcao == 3:
@@ -54,9 +82,18 @@ def opera():
                 this.opcao1 = int(input('Digite o numero da opção de pagamento: '))
                 if this.opcao1 == 0:
                     opera()
-                elif this.opcao1 == 1:
-                    print('Em Construção\n')
-                elif this.opcao1 == 2:
+                elif this.opcao1 == 1: #PIX
+                    time.sleep(1)
+                    img = cv2.imread("qrcodepagamento.png")
+                    img = cv2.resize(img, (270, 270))
+                    cv2.imshow("Pagamento", img)
+                    cv2.waitKey(0)
+                    time.sleep(1)
+                    print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
+                    print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")
+                    time.sleep(5)
+                    opera()
+                elif this.opcao1 == 2: #Cartão
                     print('Em Construção\n')
 
 

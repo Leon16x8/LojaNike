@@ -40,7 +40,7 @@ def consultalogin(loginn, senhaa):
         sql = 'select login, senha from cadastro'
         con.execute(sql)
         for(login, senha) in con:
-            if loginn == login and senhaa == senha:
+            if login == loginn and senha == senhaa:
                 print('Logado com Sucesso')
                 menucliente.opera()
             else:
@@ -89,3 +89,4 @@ def atualizarPreco(campo, novoDado, codigo):
         print('Preço atualizado com sucesso !\n')
     except Exception as erro:
         print(erro)
+
