@@ -11,7 +11,7 @@ def cadastro(cpf, nome, login, senha, email):
         sql = "insert into cadastro(cpf, nome, login, senha, email) values('{}', '{}', '{}', '{}', '{}')".format(cpf, nome, login, senha, email)
         con.execute(sql)
         db_connection.commit()  # Inserção de dados no BD
-        print("{} Linha Inserida!".format(con.rowcount))#rowcount = Contar quantas linhas foram afetadas
+        print("{} Linha Inserida !\n".format(con.rowcount))#rowcount = Contar quantas linhas foram afetadas
 
     except Exception as erro:
         return erro
@@ -21,7 +21,7 @@ def produtos(itens, preco):
         sql = "insert into produtos(itens, preco) values ('{}', '{}')".format(itens, preco)
         con.execute(sql)
         db_connection.commit() #Inserção de dados no BD
-        print("{} Linha Inserida!".format(con.rowcount))#rowcount = Contar quantas linhas foram afetadas
+        print("{} Produto inserido com Sucesso!\n".format(con.rowcount))#rowcount = Contar quantas linhas foram afetadas
 
     except Exception as erro:
         return erro
@@ -31,7 +31,7 @@ def consultarprodutos():
         sql= 'select codigo, itens, preco from produtos'
         con.execute(sql)
         for(codigo, itens, preco) in con:
-            print('Produto {}: {}\n R${}'.format(codigo, itens, preco))
+            print('Produto {}: {}\n R${}\n'.format(codigo, itens, preco))
     except Exception as erro:
         print(erro)
 
@@ -60,5 +60,32 @@ def consultaloginADM(loginADMM, senhaADMM):
             else:
                 print('Login e Senha incorretos !')
                 print('\n')
+    except Exception as erro:
+        print(erro)
+
+def excluirPessoa(cpf):
+    try:
+        sql = "delete from cadastro where cpf = '{}'".format(cpf)
+        con.execute(sql)
+        db_connection.commit()
+        print('{} Cliente excluido com sucesso !\n'.format(con.rowcount))
+    except Exception as erro:
+        print(erro)
+
+def excluirProduto(codigo):
+    try:
+        sql = "delete from produtos where codigo = '{}'".format(codigo)
+        con.execute(sql)
+        db_connection.commit()
+        print('{} Codigo Nº{} Excluido com Sucesso !\n'.format(con.rowcount, codigo))
+    except Exception as erro:
+        print(erro)
+
+def atualizarPreco(campo, novoDado, codigo):
+    try:
+        sql = "update produtos set {} = '{}' where codigo = '{}'".format(campo, novoDado, codigo)
+        con.execute(sql)
+        db_connection.commit()
+        print('Preço atualizado com sucesso !\n')
     except Exception as erro:
         print(erro)

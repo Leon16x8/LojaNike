@@ -7,8 +7,8 @@ this.opcao = -1
 def menu():
     print('\n|----------NIKE----------|\n' +
           'Escolha uma das opções abaixo: \n\n' +
-          '1. Login\n' +
-          '2. Cadastro\n' +
+          '1. Login\n'             +
+          '2. Cadastro\n'          +
           '0. Sair\n')
     this.opcao = int(input('Escolha uma opção: '))
 
@@ -38,10 +38,10 @@ def operar():
             email = input()
             operacao.cadastro(cpf, nome, login, senha, email)
 
-        elif this.opcao == 3:
-            print('Digite seu Login de ADM')
+        elif this.opcao == 99:
+            print('Digite seu Login de Funcionário: ')
             this.loginADMM = input()
-            print ('Digite sua senha de ADM')
+            print ('Digite sua senha: ')
             this.senhaADMM = input()
             operacao.consultaloginADM(this.loginADMM, this.senhaADMM)
 
