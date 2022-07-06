@@ -28,24 +28,37 @@ def produtos(itens, preco):
 
 def consultarprodutos():
     try:
-        sql= 'select codigo, itens, preco from produtos'
+        sql = 'select * from produtos'
         con.execute(sql)
+
+        msg = ""
         for(codigo, itens, preco) in con:
-            print('Produto {}: {}\n R${}\n'.format(codigo, itens, preco))
+            msg += "{} {} {} ".format(codigo,itens,preco)
+        return msg
+    except Exception as erro:
+        return erro
+
+def consultarLoginSenha(loginn, senhaa):
+    try:
+        sql = 'select * from cadastro'
+        con.execute(sql)
+
+        for(cpf, nome, login, senha, email) in con:
+            if login == loginn and senha == senhaa:
+                return True
+        return False
     except Exception as erro:
         print(erro)
 
-def consultalogin(loginn, senhaa):
+
+def login(loginn, senhaa):
     try:
-        sql = 'select login, senha from cadastro'
-        con.execute(sql)
-        for(login, senha) in con:
-            if login == loginn and senha == senhaa:
-                print('Logado com Sucesso')
-                menucliente.opera()
-            else:
-                print('Login e Senha incorretos !')
-                print('\n')
+        if consultarLoginSenha(loginn, senhaa) == True:
+            print('Logado com Sucesso !')
+            menucliente.opera()
+        else:
+            print('Login e Senha incorretos!')
+            print('\n')
     except Exception as erro:
         print(erro)
 

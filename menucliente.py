@@ -2,6 +2,7 @@ import this
 import operacao
 import time
 import cv2
+import menu
 
 this.opcao = -1
 this.opcao1 = -1
@@ -14,7 +15,7 @@ class bcolors:
     RESET = '\033[0m' #Resetar a Cor
 
 def menuCliente():
-    operacao.consultarprodutos()
+    print(operacao.consultarprodutos())
     print('0. Sair\n')
 
     this.opcao = int(input('Digite o codigo do produto que deseja: '))
@@ -24,7 +25,8 @@ def opera():
     while (this.opcao != 0):
         menuCliente()
         if this.opcao == 0:
-            print('Obrigado, volte sempre!')
+            print(f"{bcolors.GREEN}Obrigado, volte sempre!{bcolors.RESET}")
+            menu.operar()
 
         elif this.opcao == 1:
             print('Qual forma de pagamento deseja?\n ')

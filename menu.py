@@ -2,11 +2,11 @@ import operacao
 import this
 from gtts import gTTS
 from playsound import playsound
-
+this.loginn = ""
+this.senhaa = ""
 this.opcao = -1
 
-aud = 'cuspe.mp3'
-playsound(aud)
+#playsound("C:\Users\leonardo.svieira3\PycharmProjects\LojaNikeAtt\LojaNike\speech.mp3")
 
 def menu():
     print('\n|----------NIKE----------|\n' +
@@ -27,7 +27,7 @@ def operar():
             this.loginn = input()
             print('Digite sua Senha: ')
             this.senhaa = input()
-            operacao.consultalogin(this.loginn, this.senhaa)
+            operacao.login(this.loginn, this.senhaa)
 
         elif this.opcao == 2:
             print('Informe seu CPF: ')
