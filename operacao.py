@@ -61,6 +61,7 @@ def login(loginn, senhaa):
     try:
         if consultarLoginSenha(loginn, senhaa) == True:
             print('Logado com Sucesso !')
+            print('\n')
             menucliente.opera()
         else:
             print('Login e Senha incorretos!')
@@ -105,4 +106,14 @@ def atualizarPreco(campo, novoDado, codigo):
         print('Preço atualizado com sucesso !\n')
     except Exception as erro:
         print(erro)
+
+def atualizarProduto(campo, novoDado, codigo):
+    try:
+        sql = "update produtos set {} = '{}' where codigo = '{}'".format(campo, novoDado, codigo)
+        con.execute(sql)
+        db_connection.commit()
+        print('Produto atualizado com sucesso !\n')
+    except Exception as erro:
+        print(erro)
+
 

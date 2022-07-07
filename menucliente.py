@@ -15,6 +15,7 @@ class bcolors:
     RESET = '\033[0m' #Resetar a Cor
 
 def menuCliente():
+    print(f"{bcolors.YELLOW}|--------------------------------PRODUTOS--------------------------------|\n{bcolors.RESET}")
     print(operacao.consultarprodutos())
     print('0. Sair\n')
 

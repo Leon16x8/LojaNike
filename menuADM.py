@@ -58,7 +58,7 @@ def op():
             this.codigo = input()
             print('Insira o novo nome: ')
             this.campo = input()
-            operacao.atualizarPreco('itens', this.campo, this.codigo)
+            operacao.atualizarProduto('itens', this.campo, this.codigo)
 
 
 
