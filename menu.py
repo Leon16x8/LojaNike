@@ -1,12 +1,20 @@
 import operacao
 import this
 from gtts import gTTS
+from pygame import mixer
 from playsound import playsound
 this.loginn = ""
 this.senhaa = ""
 this.opcao = -1
 
-#playsound("C:\Users\leonardo.svieira3\PycharmProjects\LojaNikeAtt\LojaNike\speech.mp3")
+som = ('speech.mp3')
+playsound(som)
+
+class bcolors:
+    GREEN = '\033[92m' #Verde
+    YELLOW = '\033[93m' # Amarelo
+    RED = '\033[91m' #Vermelho
+    RESET = '\033[0m' #Resetar a Cor
 
 def menu():
     print('\n|----------NIKE----------|\n' +
@@ -20,7 +28,10 @@ def operar():
     while (this.opcao != 0):
         menu()
         if this.opcao == 0:
-            print('Obrigado!')
+            print('\n')
+            print(f"{bcolors.RED}FLW MENOR{bcolors.RESET}")
+            son = ('speech1.mp3')
+            playsound(son)
 
         elif this.opcao == 1:
             print('Digite seu Login: ')

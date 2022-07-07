@@ -26,7 +26,7 @@ def opera():
         menuCliente()
         if this.opcao == 0:
             print(f"{bcolors.GREEN}Obrigado, volte sempre!{bcolors.RESET}")
-            menu.operar()
+            exit()
 
         elif this.opcao == 1:
             print('Qual forma de pagamento deseja?\n ')

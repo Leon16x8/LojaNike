@@ -3,6 +3,12 @@ import operacao
 
 this.opcao = -1
 
+class bcolors:
+    GREEN = '\033[92m' #Verde
+    YELLOW = '\033[93m' # Amarelo
+    RED = '\033[91m' #Vermelho
+    RESET = '\033[0m' #Resetar a Cor
+
 def menudeADM():
 
     print('1. Consultar Produtos\n'        +
@@ -18,7 +24,7 @@ def op():
     while (this.opcao != 0):
         menudeADM()
         if this.opcao == 0:
-            print('Obrigado, volte sempre!')
+            print(f"{bcolors.GREEN}Até a próxima !{bcolors.RESET}")
 
         elif this.opcao == 1:
             operacao.consultarprodutos()

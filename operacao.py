@@ -30,26 +30,32 @@ def consultarprodutos():
     try:
         sql = 'select * from produtos'
         con.execute(sql)
-
-        msg = ""
         for(codigo, itens, preco) in con:
-            msg += "{} {} {} ".format(codigo,itens,preco)
-        return msg
+            print('Produto: {} {} R$:{}'.format(codigo, itens, preco))
     except Exception as erro:
         return erro
 
 def consultarLoginSenha(loginn, senhaa):
     try:
-        sql = 'select * from cadastro'
+        sql = 'select login, senha from cadastro'
         con.execute(sql)
-
-        for(cpf, nome, login, senha, email) in con:
+        for(login, senha) in con:
             if login == loginn and senha == senhaa:
                 return True
         return False
     except Exception as erro:
         print(erro)
 
+def consultarLoginSenhaADM(loginADMM, senhaADMM):
+    try:
+        sql = 'select * from ADM'
+        con.execute(sql)
+        for(cpf, loginADM, senhaADM) in con:
+            if loginADM == loginADMM and senhaADM == senhaADMM:
+                return True
+        return False
+    except Exception as erro:
+        print(erro)
 
 def login(loginn, senhaa):
     try:
@@ -64,15 +70,12 @@ def login(loginn, senhaa):
 
 def consultaloginADM(loginADMM, senhaADMM):
     try:
-        sql = 'select loginADM, senhaADM from ADM'
-        con.execute(sql)
-        for(loginADM, senhaADM) in con:
-            if loginADM == loginADMM and senhaADM == senhaADMM:
-                print('Logado com Sucesso')
-                menuADM.op()
-            else:
-                print('Login e Senha incorretos !')
-                print('\n')
+        if consultarLoginSenhaADM(loginADMM, senhaADMM) == True:
+            print('Logado com Sucesso !')
+            menuADM.op()
+        else:
+            print('Login e Senha incorretos!')
+            print('\n')
     except Exception as erro:
         print(erro)
 

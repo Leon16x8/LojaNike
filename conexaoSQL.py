@@ -3,8 +3,9 @@ from mysql.connector import errorcode #trata as "exceções" (erros)
 
 def conectar():
     try:
-        db_connection = mysql.connector.connect(host='localhost',user='root',password='',database='NikeBoy')
+        db_connection = mysql.connector.connect(host='localhost',user='root',password='',database='NikeBoy', consume_results = True)
         print('Conectado com sucesso')
+
         return db_connection
     except mysql.connector.Error as erro: #Guardando as possiveis exceções na variável
         if erro.errno == errorcode.ER_BAD_DB_ERROR: #caso o banco de dados não exista
