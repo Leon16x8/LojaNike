@@ -6,6 +6,15 @@ import menuADM
 db_connection = conexaoSQL.conectar()
 con = db_connection.cursor()
 
+class bcolors:
+    WHITE = '\033[1;97m' #Branco
+    BLACK = '\033[1;30m' #Preto
+    GREEN = '\033[92m' #Verde
+    YELLOW = '\033[93m' # Amarelo
+    RED = '\033[91m' #Vermelho
+    RESET = '\033[0m' #Resetar a Cor
+
+
 def cadastro(cpf, nome, login, senha, email):
     try:
         sql = "insert into cadastro(cpf, nome, login, senha, email) values('{}', '{}', '{}', '{}', '{}')".format(cpf, nome, login, senha, email)
@@ -31,7 +40,10 @@ def consultarprodutos():
         sql = 'select * from produtos'
         con.execute(sql)
         for(codigo, itens, preco) in con:
-            print('Produto: {} {} R$:{}'.format(codigo, itens, preco))
+            print(f"{bcolors.WHITE}")
+            print('Produto: {} {}'.format(codigo, itens))
+            print('R${}\n'.format(preco))
+            print(f"{bcolors.RESET}")
     except Exception as erro:
         return erro
 

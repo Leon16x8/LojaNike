@@ -4,10 +4,13 @@ import operacao
 this.opcao = -1
 
 class bcolors:
+    WHITE = '\033[1;97m' #Branco
+    BLACK = '\033[1;30m' #Preto
     GREEN = '\033[92m' #Verde
     YELLOW = '\033[93m' # Amarelo
     RED = '\033[91m' #Vermelho
     RESET = '\033[0m' #Resetar a Cor
+
 
 def menudeADM():
 
