@@ -40,9 +40,9 @@ def opera():
             print(f"{bcolors.WHITE}1. PIX\n"     +
                   '2. Cartão\n'  +
                   f'0. Voltar\n{bcolors.RESET}')
-            while (this.opcao1 != 0):
-                this.opcao1 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
-                if this.opcao1 == 0:
+            while (this.opcao2 != 0):
+                this.opcao2 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
+                if this.opcao2 == 0:
                     opera()
 
                 elif this.opcao2 == 1: #PIX
@@ -65,8 +65,8 @@ def opera():
             print(f"{bcolors.WHITE}1. PIX\n" +
                   '2. Cartão\n' +
                   f'0. Voltar\n{bcolors.RESET}')
-            while (this.opcao1 != 0):
-                this.opcao1 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
+            while (this.opcao2 != 0):
+                this.opcao2 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
                 if this.opcao2 == 0:
                     opera()
                 elif this.opcao2 == 1:  # PIX
@@ -89,8 +89,8 @@ def opera():
             print(f"{bcolors.WHITE}1. PIX\n" +
                   '2. Cartão\n' +
                   f'0. Voltar\n{bcolors.RESET}')
-            while (this.opcao1 != 0):
-                this.opcao1 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
+            while (this.opcao2 != 0):
+                this.opcao2 = int(input(f"{bcolors.WHITE}Digite o numero da opção de pagamento: {bcolors.RESET}"))
                 if this.opcao2 == 0:
                     opera()
                 elif this.opcao2 == 1:  # PIX
