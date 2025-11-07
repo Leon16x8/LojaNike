@@ -14,5 +14,5 @@ def conectar():
             print('Usuário ou Senha não são válidos, {}'.format(erro))
         else:
             print(erro)
-    else:
-        db_connection.close()
+        # Em caso de erro retornamos explicitamente None para que o chamador saiba
+        return None

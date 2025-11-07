@@ -1,7 +1,14 @@
 import this
 import operacao
 import time
-import cv2
+
+# Tentar importar cv2 (OpenCV). Se não estiver instalado, deixamos um fallback
+try:
+    import cv2
+    _HAS_CV2 = True
+except Exception:
+    cv2 = None
+    _HAS_CV2 = False
 import menu
 
 this.opcao = -1
@@ -28,6 +35,27 @@ def menuCliente():
     this.opcao = int(input('Digite o codigo do produto que deseja: '))
     print('\n')
 
+
+def show_payment_qr():
+    """Mostra o QR code usando OpenCV se disponível; caso contrário mostra uma mensagem.
+
+    Mantemos a função resiliente a erros (arquivo ausente ou falha no OpenCV).
+    """
+    if not _HAS_CV2:
+        print(f"{bcolors.YELLOW}Biblioteca 'cv2' não está instalada. Instale 'opencv-python' para visualizar o QR.{bcolors.RESET}")
+        return
+
+    try:
+        img = cv2.imread("qrcodepagamento.png")
+        if img is None:
+            print(f"{bcolors.YELLOW}Arquivo 'qrcodepagamento.png' não encontrado ou inválido.{bcolors.RESET}")
+            return
+        img = cv2.resize(img, (270, 270))
+        cv2.imshow("Pagamento", img)
+        cv2.waitKey(0)
+    except Exception as e:
+        print(f"{bcolors.RED}Erro ao mostrar QR: {e}{bcolors.RESET}")
+
 def opera():
     while (this.opcao != 0):
         menuCliente()
@@ -47,10 +75,7 @@ def opera():
 
                 elif this.opcao2 == 1: #PIX
                     time.sleep(1)
-                    img = cv2.imread("qrcodepagamento.png")
-                    img = cv2.resize(img, (270, 270))
-                    cv2.imshow("Pagamento", img)
-                    cv2.waitKey(0)
+                    show_payment_qr()
                     time.sleep(1)
                     print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
                     print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")
@@ -71,10 +96,7 @@ def opera():
                     opera()
                 elif this.opcao2 == 1:  # PIX
                     time.sleep(1)
-                    img = cv2.imread("qrcodepagamento.png")
-                    img = cv2.resize(img, (270, 270))
-                    cv2.imshow("Pagamento", img)
-                    cv2.waitKey(0)
+                    show_payment_qr()
                     time.sleep(1)
                     print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
                     print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")
@@ -95,10 +117,7 @@ def opera():
                     opera()
                 elif this.opcao2 == 1:  # PIX
                     time.sleep(1)
-                    img = cv2.imread("qrcodepagamento.png")
-                    img = cv2.resize(img, (270, 270))
-                    cv2.imshow("Pagamento", img)
-                    cv2.waitKey(0)
+                    show_payment_qr()
                     time.sleep(1)
                     print(f"{bcolors.YELLOW}Iremos verificar o pagamento e te avisaremos via e-mail{bcolors.RESET}")
                     print(f"{bcolors.GREEN}Obrigado Volte Sempre !\n{bcolors.RESET}")

@@ -1,7 +1,7 @@
 import operacao
 import this
-from gtts import gTTS
-from playsound import playsound
+#from gtts import gTTS
+#from playsound import playsound
 this.loginn = ""
 this.senhaa = ""
 this.opcao = -1
